@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <p>
+        Signed in as <span sec:authentication="name">username</span>
+    </p>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Log out</button>
+    </form>
+
+    <h1>Movie Manager</h1>
+    <h3></h3>
+
+    <a th:href="@{/login}">Log in to access your movie list</a>
+
+    <a th:href="@{/signup}">Sign-up</a>
+
+</body>
+
+</html>

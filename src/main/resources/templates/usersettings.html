@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <p>
+        Signed in as <span sec:authentication="name">username</span>
+    </p>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Log out</button>
+    </form>
+
+    <h1>Settings</h1>
+
+    <p th:if="${passwordSuccess}" th:text="${passwordSuccess}" role="status"></p>
+    <p th:if="${passwordError}" th:text="${passwordError}" role="alert"></p>
+
+    <h2>Change password</h2>
+    <form th:action="@{/usersettings/password}" method="post">
+        <div>
+            <label for="currentPassword">Current password:</label>
+            <input id="currentPassword" name="currentPassword" type="password" autocomplete="current-password"
+                required />
+        </div>
+        <div>
+            <label for="newPassword">New password:</label>
+            <input id="newPassword" name="newPassword" type="password" autocomplete="new-password" minlength="12"
+                maxlength="30" required />
+        </div>
+        <div>
+            <label for="confirmPassword">Confirm new password:</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password"
+                minlength="12" maxlength="30" required />
+        </div>
+        <button type="submit">Change password</button>
+    </form>
+</body>
+
+</html>

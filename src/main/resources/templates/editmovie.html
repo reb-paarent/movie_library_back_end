@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1>Edit Movie</h1>
+
+    <form th:object="${movie}" th:action="@{/save}" method="post">
+        <input type="hidden" th:field="*{id}" class="form-control" />
+        <input type="text" th:field="*{title}" />
+        <input type="text" th:field="*{releaseYear}" />
+        <input type="text" th:field="*{director}" />
+
+        <label for="deplist">Watch Status</label>
+        <select id="deplist" th:field="*{watchStatus}" class="form-control">
+            <option th:each="watchStatus: ${watchStatuses}" th:value="${watchStatus.id}" th:text="${watchStatus.name}">
+            </option>
+        </select>
+
+        <input type="submit" class="btn btn-success" value="Save">
+    </form>
+
+    <a href="/movielist" class="btn btn-primary">Cancel</a>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <p>
+        Signed in as <span sec:authentication="name">username</span>
+    </p>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Log out</button>
+    </form>
+
+    <h1>Want to Watch</h1>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Director</th>
+        </tr>
+        <tr th:each="movie : ${movies}">
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.releaseYear}"></td>
+            <td th:text="${movie.director}"></td>
+            <td th:text="${movie.watchStatus.name}"></td>
+            <td><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
+        </tr>
+    </table>
+
+    <a href="/movielist" class="btn btn-primary">See All Movies</a>
+
+    <a href="/userhomepage" class="btn btn-primary">Return to Home</a>
+
+</body>
+
+</html>

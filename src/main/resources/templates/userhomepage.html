@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <p>
+        Signed in as <span sec:authentication="name">username</span>
+    </p>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Log out</button>
+    </form>
+
+    <h1>Homepage</h1>
+
+    <a href="/usersettings" class="btn btn-primary">Settings</a>
+
+    <a href="/wanttowatch" class="btn btn-primary">Want to Watch</a>
+
+    <a href="/movielist" class="btn btn-primary">See All Movies</a>
+
+</body>
+
+</html>
