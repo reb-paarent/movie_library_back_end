@@ -23,6 +23,23 @@
 
     <a href="/movielist" class="btn btn-primary">See All Movies</a>
 
+
+    <h2>Watch By Genre</h2>
+
+    <select aria-label="Select a genre"
+            onchange="if (this.value) window.location.href = this.value">
+        <option value="" selected disabled>Choose a genre</option>
+        <option value="/action">Action</option>
+        <option value="/adventure">Adventure</option>
+        <option value="/comedy">Comedy</option>
+        <option value="/drama">Drama</option>
+        <option value="/horror">Horror</option>
+        <option value="/kids">Kids</option>
+        <option value="/scifi">Science Fiction</option>
+        <option value="/thriller">Thriller</option>
+        <option value="/other">Other</option>
+    </select>
+
 </body>
 
 </html>

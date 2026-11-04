@@ -13,8 +13,12 @@ public class Movie {
     private String director;
 
     @ManyToOne
-    @JoinColumn(name = "name")
+    @JoinColumn(name = "watch_status_id")
     private WatchStatus watchStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_id", nullable = false)
@@ -23,12 +27,14 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(String title, int releaseYear, String director, WatchStatus watchStatus) {
+    public Movie(String title, int releaseYear, String director, WatchStatus watchStatus, 
+        Genre genre) {
         super();
         this.title = title;
         this.releaseYear = releaseYear;
         this.director = director;
         this.watchStatus = watchStatus;
+        this.genre = genre;
     }
 
     public Long getId() {
@@ -69,6 +75,14 @@ public class Movie {
 
     public void setWatchStatus(WatchStatus watchStatus) {
         this.watchStatus = watchStatus;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     @JsonIgnore

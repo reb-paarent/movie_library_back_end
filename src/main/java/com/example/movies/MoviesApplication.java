@@ -6,12 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 
-import com.example.movies.domain.MovieRepository;
-import com.example.movies.domain.Movie;
-import com.example.movies.domain.WatchStatusRepository;
-import com.example.movies.domain.WatchStatus;
-import com.example.movies.domain.AppUser;
-import com.example.movies.domain.AppUserRepository;
+import com.example.movies.domain.*;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -27,6 +22,8 @@ public class MoviesApplication {
 			MovieRepository mRepository,
 			WatchStatusRepository sRepository,
 			AppUserRepository userRepository,
+			GenreRepository gRepository,
+
 			PasswordEncoder passwordEncoder) {
 		return (args) -> {
 			sRepository.save(new WatchStatus("Unwatched"));
@@ -34,6 +31,16 @@ public class MoviesApplication {
 			sRepository.save(new WatchStatus("Watching"));
 			sRepository.save(new WatchStatus("Want to Watch"));
 			sRepository.save(new WatchStatus("Dropped"));
+
+			gRepository.save(new Genre("Horror"));
+			gRepository.save(new Genre("Drama"));
+			gRepository.save(new Genre("Comedy"));
+			gRepository.save(new Genre("Science Fiction"));
+			gRepository.save(new Genre("Thriller"));
+			gRepository.save(new Genre("Kids"));
+			gRepository.save(new Genre("Action"));
+			gRepository.save(new Genre("Adventure"));
+			gRepository.save(new Genre("Other"));
 
 			if (userRepository.findByUsername("user") == null) {
 				userRepository.save(

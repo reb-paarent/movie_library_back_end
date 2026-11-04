@@ -15,8 +15,14 @@
         <input type="text" th:field="*{releaseYear}" />
         <input type="text" th:field="*{director}" />
 
-        <label for="deplist">Watch Status</label>
-        <select id="deplist" th:field="*{watchStatus}" class="form-control">
+        <label for="genrelist">Genre</label>
+        <select id="genrelist" th:field="*{genre}" class="form-control">
+            <option th:each="genre: ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+            </option>
+        </select>
+
+        <label for="statuslist">Watch Status</label>
+        <select id="statuslist" th:field="*{watchStatus}" class="form-control">
             <option th:each="watchStatus: ${watchStatuses}" th:value="${watchStatus.id}" th:text="${watchStatus.name}">
             </option>
         </select>
