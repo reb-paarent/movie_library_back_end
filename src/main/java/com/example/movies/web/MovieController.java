@@ -60,6 +60,14 @@ public class MovieController {
         return "movielist";
     }
 
+    // Show all movies
+    @RequestMapping(value = "/sortyear")
+    public String movieListByYear(Model model, Principal principal) {
+        List<Movie> movies = repository.findByOwner_UsernameOrderByReleaseYearAsc(principal.getName());
+        model.addAttribute("movies", movies);
+        return "movielist";
+    }
+
     // Add new movie
     @RequestMapping(value = "/add")
     public String addMovie(Model model) {
