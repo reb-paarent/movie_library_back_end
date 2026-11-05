@@ -34,6 +34,14 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping(value = "/reset")
+    public String reset() {
+        System.out.println("JUKKA");
+        return "login";
+    }
+
+    
+
     @RequestMapping(value = "signup")
     public String addStudent(Model model) {
         model.addAttribute("signupform", new SignupForm());
