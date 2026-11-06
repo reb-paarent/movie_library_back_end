@@ -19,6 +19,18 @@
 
     <p th:if="${passwordSuccess}" th:text="${passwordSuccess}" role="status"></p>
     <p th:if="${passwordError}" th:text="${passwordError}" role="alert"></p>
+    <p th:if="${emailSuccess}" th:text="${emailSuccess}" role="status"></p>
+    <p th:if="${emailError}" th:text="${emailError}" role="alert"></p>
+
+    <h2>Change email address</h2>
+    <p>Current email: <span th:text="${currentEmail}"></span></p>
+    <form th:action="@{/usersettings/email}" method="post">
+        <div>
+            <label for="email">New email address:</label>
+            <input id="email" name="email" type="email" maxlength="254" autocomplete="email" required />
+        </div>
+        <button type="submit">Change email</button>
+    </form>
 
     <h2>Change password</h2>
     <form th:action="@{/usersettings/password}" method="post">

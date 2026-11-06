@@ -25,6 +25,6 @@ public class WebLayerTest {
     @WithMockUser(username= "user", authorities = "USER")
     public void testDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/index")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("index")));
+                .andExpect(content().string(containsString("Movie")));
     }
 }

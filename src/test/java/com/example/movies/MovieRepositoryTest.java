@@ -1,7 +1,5 @@
 package com.example.movies;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;

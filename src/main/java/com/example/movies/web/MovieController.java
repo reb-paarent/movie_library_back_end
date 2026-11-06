@@ -47,11 +47,6 @@ public class MovieController {
         return "userhomepage";
     }
 
-    @GetMapping("/usersettings")
-    public String userSettings() {
-        return "usersettings";
-    }
-
     // Show all movies
     @RequestMapping(value = "/movielist")
     public String movieList(Model model, Principal principal) {

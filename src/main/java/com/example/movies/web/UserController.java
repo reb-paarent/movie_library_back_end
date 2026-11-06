@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,7 +41,15 @@ public class UserController {
         return "login";
     }
 
-    
+    @GetMapping("/usersettings")
+    public String userSettings(Principal principal, Model model) {
+        AppUser user = repository.findByUsername(principal.getName());
+        if (user == null) {
+            throw new IllegalStateException("User " + principal.getName() + " does not exist.");
+        }
+        model.addAttribute("currentEmail", user.getEmail());
+        return "usersettings";
+    }
 
     @RequestMapping(value = "signup")
     public String addStudent(Model model) {
@@ -116,6 +125,38 @@ public class UserController {
         user.setPasswordHash(passwordEncoder.encode(newPassword));
         repository.save(user);
         redirectAttributes.addFlashAttribute("passwordSuccess", "Password changed successfully.");
+        return "redirect:/usersettings";
+    }
+
+    @PostMapping("/usersettings/email")
+    public String changeEmail(
+            @RequestParam String email,
+            Principal principal,
+            Model model,
+            RedirectAttributes redirectAttributes) {
+        AppUser user = repository.findByUsername(principal.getName());
+        if (user == null) {
+            throw new IllegalStateException("User " + principal.getName() + " does not exist.");
+        }
+        String updatedEmail = email.trim();
+        model.addAttribute("currentEmail", user.getEmail());
+        if (updatedEmail.isEmpty()) {
+            model.addAttribute("emailError", "Email address cannot be empty.");
+            return "usersettings";
+        }
+        if (updatedEmail.length() > 254) {
+            model.addAttribute("emailError", "Email address must be 254 characters or fewer.");
+            return "usersettings";
+        }
+        AppUser existingUser = repository.findByEmailIgnoreCase(updatedEmail);
+        if (existingUser != null && !existingUser.getId().equals(user.getId())) {
+            model.addAttribute("emailError", "That email address is already in use.");
+            return "usersettings";
+        }
+
+        user.setEmail(updatedEmail);
+        repository.save(user);
+        redirectAttributes.addFlashAttribute("emailSuccess", "Email address changed successfully.");
         return "redirect:/usersettings";
     }
 
