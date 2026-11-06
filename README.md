@@ -14,3 +14,4 @@ This application will be updated with more features including
 * search functions
 * watch history
 * better ui and ui settings
+* scaling for mobile

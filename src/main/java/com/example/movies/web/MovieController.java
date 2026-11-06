@@ -37,7 +37,7 @@ public class MovieController {
         this.gRepository = gRepository;
     }
 
-    @GetMapping("/index")
+    @GetMapping({ "/", "/index" })
     public String index() {
         return "index";
     }
