@@ -15,14 +15,14 @@ public class Genre {
     @JsonIgnore
     private List<Movie> movies;
 
-    public Genre(){
+    public Genre() {
     }
 
-    public Genre(String name){
+    public Genre(String name) {
         this.name = name;
     }
 
-        public Long getId() {
+    public Long getId() {
         return id;
     }
 

@@ -87,5 +87,5 @@ public class MovieRepositoryTest {
 
         assertThat(repository.findById(movie.getId())).isEmpty();
     }
-    
+
 }

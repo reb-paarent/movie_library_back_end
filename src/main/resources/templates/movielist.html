@@ -33,7 +33,7 @@
             <td th:text="${movie.genre.name}"></td>
             <td th:text="${movie.watchStatus.name}"></td>
             <td><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
-            <td><a th:href="@{/delete/{id}(id=${movie.id})}">Delete</a></td>   
+            <td><a th:href="@{/delete/{id}(id=${movie.id})}">Delete</a></td>
         </tr>
     </table>
     <p></p>

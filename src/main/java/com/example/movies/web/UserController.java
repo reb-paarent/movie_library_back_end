@@ -37,7 +37,6 @@ public class UserController {
 
     @RequestMapping(value = "/reset")
     public String reset() {
-        System.out.println("JUKKA");
         return "login";
     }
 
@@ -92,6 +91,7 @@ public class UserController {
         return "redirect:/login";
     }
 
+    // Settings for changing password
     @PostMapping("/usersettings/password")
     public String changePassword(
             @RequestParam String currentPassword,
@@ -128,6 +128,7 @@ public class UserController {
         return "redirect:/usersettings";
     }
 
+    // Settings for changing email address
     @PostMapping("/usersettings/email")
     public String changeEmail(
             @RequestParam String email,

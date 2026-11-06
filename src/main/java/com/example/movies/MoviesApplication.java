@@ -27,36 +27,40 @@ public class MoviesApplication {
 			PasswordEncoder passwordEncoder) {
 		return (args) -> {
 			sRepository.save(new WatchStatus("Unwatched"));
-			sRepository.save(new WatchStatus("Watched"));
-			sRepository.save(new WatchStatus("Watching"));
 			sRepository.save(new WatchStatus("Want to Watch"));
+			sRepository.save(new WatchStatus("Watching"));
 			sRepository.save(new WatchStatus("Dropped"));
+			sRepository.save(new WatchStatus("Watched"));
 
-			gRepository.save(new Genre("Horror"));
-			gRepository.save(new Genre("Drama"));
-			gRepository.save(new Genre("Comedy"));
-			gRepository.save(new Genre("Science Fiction"));
-			gRepository.save(new Genre("Thriller"));
-			gRepository.save(new Genre("Kids"));
 			gRepository.save(new Genre("Action"));
 			gRepository.save(new Genre("Adventure"));
+			gRepository.save(new Genre("Comedy"));
+			gRepository.save(new Genre("Drama"));
+			gRepository.save(new Genre("Horror"));
+			gRepository.save(new Genre("Kids"));
+			gRepository.save(new Genre("Science Fiction"));
+			gRepository.save(new Genre("Thriller"));
 			gRepository.save(new Genre("Other"));
-			
-			 /* 
-			if (userRepository.findByUsername("user") == null) {
-				userRepository.save(
-						new AppUser("user", passwordEncoder.encode("user"), "USER", "user@example.com"));
-			}
 
-			if (userRepository.findByUsername("admin") == null) {
-				userRepository.save(
-						new AppUser("admin", passwordEncoder.encode("admin"), "ADMIN", "admin@example.com"));
-			}
-			*/
-			
+			/*
+			 * 
+			 * Default users for testing purposes.
+			 * 
+			 * if (userRepository.findByUsername("user") == null) {
+			 * userRepository.save(
+			 * new AppUser("user", passwordEncoder.encode("user"), "USER",
+			 * "user@example.com"));
+			 * }
+			 * 
+			 * if (userRepository.findByUsername("admin") == null) {
+			 * userRepository.save(
+			 * new AppUser("admin", passwordEncoder.encode("admin"), "ADMIN",
+			 * "admin@example.com"));
+			 * }
+			 */
+
 		};
 
 	}
 
 }
-

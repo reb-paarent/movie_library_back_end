@@ -1,17 +1,16 @@
 package com.example.movies.domain;
 
-
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 public class ResetPasswordForm {
-    @NotEmpty
-    @Size(min=7, max=30)
-    private String password = "";
-    
-    @NotEmpty
-    @Size(min=7, max=30)
-    private String passwordCheck = "";
+	@NotEmpty
+	@Size(min = 7, max = 30)
+	private String password = "";
+
+	@NotEmpty
+	@Size(min = 7, max = 30)
+	private String passwordCheck = "";
 
 	public String getPassword() {
 		return password;
@@ -29,5 +28,4 @@ public class ResetPasswordForm {
 		this.passwordCheck = passwordCheck;
 	}
 
-    
 }

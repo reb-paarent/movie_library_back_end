@@ -27,8 +27,8 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(String title, int releaseYear, String director, WatchStatus watchStatus, 
-        Genre genre) {
+    public Movie(String title, int releaseYear, String director, WatchStatus watchStatus,
+            Genre genre) {
         super();
         this.title = title;
         this.releaseYear = releaseYear;

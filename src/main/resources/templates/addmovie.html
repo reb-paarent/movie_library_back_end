@@ -21,8 +21,7 @@
 
             <label for="genrelist">Genre</label>
             <select id="genrelist" th:field="*{genre}" class="form-control">
-                <option th:each="genre: ${genres}" th:value="${genre.id}"
-                    th:text="${genre.name}"></option>
+                <option th:each="genre: ${genres}" th:value="${genre.id}" th:text="${genre.name}"></option>
             </select>
 
             <label for="statuslist">Watch Status</label>

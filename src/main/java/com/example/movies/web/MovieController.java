@@ -134,8 +134,10 @@ public class MovieController {
         return "wanttowatch";
     }
 
-    
-    //Filter movie list to show movies of specific genres
+    /*
+     * Filter movie list to show movies of specific genres.
+     * Genre pages are found on the homepage.
+     */
     private String genreMovies(String genre, String view, Model model, Principal principal) {
         model.addAttribute("movies", repository.findByGenre_NameAndOwner_Username(genre, principal.getName()));
         return view;
