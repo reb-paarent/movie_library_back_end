@@ -4,7 +4,7 @@ This application allows users to keep track of the movies they watch in a digita
 
 ## How to Use
 
-Find the application [here](softala.haaga-helia.fi:7077)
+Find the application [here](http://softala.haaga-helia.fi:7077/)
 
 ## Future Development
 
