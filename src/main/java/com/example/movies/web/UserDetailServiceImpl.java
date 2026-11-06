@@ -15,7 +15,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     private final AppUserRepository repository;
 
-    @Autowired
     public UserDetailServiceImpl(AppUserRepository repository) {
         this.repository = repository;
     }

@@ -18,7 +18,6 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/css/**", "/index", "/login", "/reset",  "/saveuser", "/signup").permitAll()
-                        .requestMatchers("/delete/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")

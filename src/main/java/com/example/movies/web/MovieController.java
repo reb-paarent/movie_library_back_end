@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import com.example.movies.domain.AppUser;
 import com.example.movies.domain.AppUserRepository;
 
@@ -60,10 +59,18 @@ public class MovieController {
         return "movielist";
     }
 
-    // Show all movies
+    // Show all movies sorted by release year
     @RequestMapping(value = "/sortyear")
     public String movieListByYear(Model model, Principal principal) {
         List<Movie> movies = repository.findByOwner_UsernameOrderByReleaseYearAsc(principal.getName());
+        model.addAttribute("movies", movies);
+        return "movielist";
+    }
+
+    // Show all movies sorted by title
+    @RequestMapping(value = "/sorttitle")
+    public String movieListByTitle(Model model, Principal principal) {
+        List<Movie> movies = repository.findByOwner_UsernameOrderByTitleAsc(principal.getName());
         model.addAttribute("movies", movies);
         return "movielist";
     }

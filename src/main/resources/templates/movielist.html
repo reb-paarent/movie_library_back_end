@@ -15,10 +15,13 @@
         <button type="submit">Log out</button>
     </form>
 
+    <p></p>
+    <p></p>
+
     <table>
         <tr>
-            <th>Title</th>
-            <th><a href="/sortyear"></a>Year</th>
+            <th><a href="/sorttitle">Title</a></th>
+            <th><a href="/sortyear">Year</a></th>
             <th>Director</th>
             <th>Genre</th>
             <th>Watch Status</th>
@@ -33,8 +36,13 @@
             <td><a th:href="@{/delete/{id}(id=${movie.id})}">Delete</a></td>   
         </tr>
     </table>
+    <p></p>
+    <p></p>
 
     <a href="/add" class="btn btn-primary">Add Movie</a>
+
+    <p></p>
+    <p></p>
 
     <a href="/userhomepage" class="btn btn-primary">Return to Home</a>
 </body>
