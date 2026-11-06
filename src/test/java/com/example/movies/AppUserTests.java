@@ -9,7 +9,7 @@ import com.example.movies.domain.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-class MoviesApplicationTests {
+class AppUserTests {
 
 	@Autowired
 	private MovieRepository movieRepository;

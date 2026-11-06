@@ -9,6 +9,7 @@ Find the application [here](http://softala.haaga-helia.fi:7077/)
 ## Future Development
 
 This application will be updated with more features including
+* account deletion
 * password recovery
 * movie ratings and sorting by rating
 * search functions
