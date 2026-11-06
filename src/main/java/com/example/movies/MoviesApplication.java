@@ -42,7 +42,7 @@ public class MoviesApplication {
 			gRepository.save(new Genre("Adventure"));
 			gRepository.save(new Genre("Other"));
 			
-			 
+			 /* 
 			if (userRepository.findByUsername("user") == null) {
 				userRepository.save(
 						new AppUser("user", passwordEncoder.encode("user"), "USER", "user@example.com"));
@@ -52,6 +52,7 @@ public class MoviesApplication {
 				userRepository.save(
 						new AppUser("admin", passwordEncoder.encode("admin"), "ADMIN", "admin@example.com"));
 			}
+			*/
 			
 		};
 
