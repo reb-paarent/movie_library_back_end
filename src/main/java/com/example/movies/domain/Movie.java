@@ -1,8 +1,10 @@
 package com.example.movies.domain;
 
 import jakarta.persistence.*;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Movie {
@@ -11,8 +13,8 @@ public class Movie {
     private Long id;
     @NotBlank(message = "Title is required")
     private String title;
-    @NotBlank(message = "Year is required")
-    private int releaseYear;
+    @NotNull(message = "Year is required")
+    private Integer releaseYear;
     private String director;
 
     @ManyToOne
@@ -30,7 +32,7 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(String title, int releaseYear, String director, WatchStatus watchStatus,
+    public Movie(String title, Integer releaseYear, String director, WatchStatus watchStatus,
             Genre genre) {
         super();
         this.title = title;
@@ -64,11 +66,11 @@ public class Movie {
         this.director = director;
     }
 
-    public int getReleaseYear() {
+    public Integer getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(int releaseYear) {
+    public void setReleaseYear(Integer releaseYear) {
         this.releaseYear = releaseYear;
     }
 
