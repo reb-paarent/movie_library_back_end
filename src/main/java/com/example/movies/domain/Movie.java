@@ -2,13 +2,16 @@ package com.example.movies.domain;
 
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank(message = "Title is required")
     private String title;
+    @NotBlank(message = "Year is required")
     private int releaseYear;
     private String director;
 

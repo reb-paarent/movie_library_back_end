@@ -3,37 +3,43 @@
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/main_style.css}" />
 </head>
 
 <body>
-    <div class="col-md-4 col-md-offset-4">
-        <div class="alert alert-danger" th:if="${param.error}">
-            Invalid username and password.
-        </div>
-        <div class="alert alert-warning" th:if="${param.logout}">
-            You have been logged out.
-        </div>
-        <form th:action="@{/login}" method="post">
-            <div><label> User Name : <input type="text" name="username" class="form-control" /> </label></div>
-            <div><label> Password: <input type="password" name="password" class="form-control" /> </label></div>
-            <div><input type="submit" value="Sign In" class="btn btn-primary" /></div>
+    <section class="login">
+        <h1>Log In</h1>
+        <div>
+            <div class="alert alert-danger" th:if="${param.error}">
+                Invalid username and password.
+            </div>
+            <div class="alert alert-warning" th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <form th:action="@{/login}" method="post">
+                <div><label> User Name : <input type="text" name="username" class="form-control" /> </label></div>
+                <div><label> Password: <input type="password" name="password" class="form-control" /> </label></div>
+                <div><input type="submit" value="Sign In" class="btn btn-primary" /></div>
+            </form>
+    </section>
+
+    <nav>
+        <form th:action="@{/signup}" method="get">
+            <button type="submit">Sign-up</button>
         </form>
+        <form th:action="@{/index}" method="get">
+            <button type="submit">Return</button>
+        </form>
+    </nav>
 
-        <p></p>
-        <p></p>
-
-        <a th:href="@{/signup}">Sign-up</a>
-
-        <p></p>
-        <p></p>
-        
-        <!--
+    <!--
         Password resets don't function yet. Commented out.
         
         <a th:href="@{/reset}">Forgot your password?</a>
         -->
-        
+
     </div>
 </body>
 

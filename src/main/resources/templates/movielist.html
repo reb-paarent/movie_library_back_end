@@ -3,48 +3,62 @@
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/main_style.css}" />
 </head>
 
 <body>
-    <p>
-        Signed in as <span sec:authentication="name">username</span>
-    </p>
+    <div class="login_info">
+        <p>
+            Signed in as <span sec:authentication="name">username</span>
+        </p>
 
-    <form th:action="@{/logout}" method="post">
-        <button type="submit">Log out</button>
-    </form>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Log out</button>
+        </form>
+    </div>
 
-    <p></p>
-    <p></p>
+    <section class="movie_table">
+        <h1>All Movies</h1>
 
-    <table>
-        <tr>
-            <th><a href="/sorttitle">Title</a></th>
-            <th><a href="/sortyear">Year</a></th>
-            <th>Director</th>
-            <th>Genre</th>
-            <th>Watch Status</th>
-        </tr>
-        <tr th:each="movie : ${movies}">
-            <td th:text="${movie.title}"></td>
-            <td th:text="${movie.releaseYear}"></td>
-            <td th:text="${movie.director}"></td>
-            <td th:text="${movie.genre.name}"></td>
-            <td th:text="${movie.watchStatus.name}"></td>
-            <td><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
-            <td><a th:href="@{/delete/{id}(id=${movie.id})}">Delete</a></td>
-        </tr>
-    </table>
-    <p></p>
-    <p></p>
+        <table>
+            <tr>
+                <th><a href="/sorttitle">Title</a></th>
+                <th><a href="/sortyear">Year</a></th>
+                <th>Director</th>
+                <th>Genre</th>
+                <th>Watch Status</th>
+            </tr>
+            <tr th:each="movie : ${movies}">
+                <td th:text="${movie.title}"></td>
+                <td th:text="${movie.releaseYear}"></td>
+                <td th:text="${movie.director}"></td>
+                <td th:text="${movie.genre.name}"></td>
+                <td th:text="${movie.watchStatus.name}"></td>
+                <td>
+                    <form th:action="@{/edit/{id}(id=${movie.id})}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/delete/{id}(id=${movie.id})}" method="get">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </section>
 
-    <a href="/add" class="btn btn-primary">Add Movie</a>
+    <nav>
+        <form th:action="@{/add}" method="get">
+            <button type="submit" class="btn btn-primary">Add Movie</button>
+        </form>
+        <form th:action="@{/userhomepage}" method="get">
+            <button type="submit" class="btn btn-primary">Return to Home</button>
+        </form>
+    </nav>
 
-    <p></p>
-    <p></p>
-
-    <a href="/userhomepage" class="btn btn-primary">Return to Home</a>
 </body>
 
 </html>

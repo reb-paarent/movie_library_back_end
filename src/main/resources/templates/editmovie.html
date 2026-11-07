@@ -3,37 +3,43 @@
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/main_style.css}" />
 </head>
 
 <body>
-    <h1>Edit Movie</h1>
+    <section class="change_movie">
+        <h1>Edit Movie</h1>
 
-    <form th:object="${movie}" th:action="@{/save}" method="post">
-        <input type="hidden" th:field="*{id}" class="form-control" />
-        <input type="text" th:field="*{title}" />
-        <input type="text" th:field="*{releaseYear}" />
-        <input type="text" th:field="*{director}" />
+        <form th:object="${movie}" th:action="@{/save}" method="post">
+            <input type="hidden" th:field="*{id}" class="form-control" />
+            <input type="text" placeholder="Title" th:field="*{title}" required/>
+            <input type="text" placeholder="Year" th:field="*{releaseYear}" required/>
+            <input type="text" placeholder="Director" th:field="*{director}" />
 
-        <label for="genrelist">Genre</label>
-        <select id="genrelist" th:field="*{genre}" class="form-control">
-            <option th:each="genre: ${genres}" th:value="${genre.id}" th:text="${genre.name}">
-            </option>
-        </select>
+            <label for="genrelist">Genre</label>
+            <select id="genrelist" th:field="*{genre}" class="form-control">
+                <option th:each="genre: ${genres}" th:value="${genre.id}" th:text="${genre.name}">
+                </option>
+            </select>
 
-        <label for="statuslist">Watch Status</label>
-        <select id="statuslist" th:field="*{watchStatus}" class="form-control">
-            <option th:each="watchStatus: ${watchStatuses}" th:value="${watchStatus.id}" th:text="${watchStatus.name}">
-            </option>
-        </select>
+            <label for="statuslist">Watch Status</label>
+            <select id="statuslist" th:field="*{watchStatus}" class="form-control">
+                <option th:each="watchStatus: ${watchStatuses}" th:value="${watchStatus.id}"
+                    th:text="${watchStatus.name}">
+                </option>
+            </select>
 
-        <input type="submit" class="btn btn-success" value="Save">
-    </form>
+            <input type="submit" class="btn btn-success" value="Save">
+        </form>
+    </section>
 
-    <p></p>
-    <p></p>
-
-    <a href="/movielist" class="btn btn-primary">Cancel</a>
+    <nav>
+        <form th:action="@{/movielist}" method="get">
+            <button type="submit" class="btn btn-primary">Cancel</button>
+        </form>
+    </nav>
 
 </body>
 

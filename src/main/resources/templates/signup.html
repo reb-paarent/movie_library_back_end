@@ -3,13 +3,15 @@
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/main_style.css}" />
 </head>
 
 <body>
-    <div class="container">
-        <h1>Sign-up</h1>
-        <div class="col-md-4">
+    <section class="signup">
+        <h1>Sign Up</h1>
+        <div>
             <form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
                 <div>
                     <label> Username :<input type="text" th:field="*{username}" class="form-control" /></label>
@@ -33,12 +35,13 @@
                 <input type="submit" class="btn btn-primary" value="Signup"></input>
             </form>
         </div>
-    </div>
+    </section>
 
-    <p></p>
-    <p></p>
-
-    <a th:href="@{/login}">Return</a>
+    <nav>
+        <form th:action="@{/login}" method="get">
+            <button type="submit">Return</button>
+        </form>
+    </nav>
 </body>
 
 </html>

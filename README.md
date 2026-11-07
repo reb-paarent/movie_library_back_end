@@ -14,5 +14,4 @@ This application will be updated with more features including
 * movie ratings and sorting by rating
 * search functions
 * watch history
-* better UI and UI settings
-* scaling for mobile
+* night mode ui option

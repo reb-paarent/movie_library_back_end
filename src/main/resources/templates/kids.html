@@ -1,47 +1,52 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/main_style.css}" />
 </head>
 
 <body>
-    <p>
-        Signed in as <span sec:authentication="name">username</span>
-    </p>
+    <div class="login_info">
+        <p>
+            Signed in as <span sec:authentication="name">username</span>
+        </p>
 
-    <form th:action="@{/logout}" method="post">
-        <button type="submit">Log out</button>
-    </form>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Log out</button>
+        </form>
+    </div>
 
-    <h1>Kids' Movies</h1>
+    <section class="movie_table">
+        <h1>Kids' Movies</h1>
 
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Year</th>
-            <th>Director</th>
-            <th>Watch Status</th>
-        </tr>
-        <tr th:each="movie : ${movies}">
-            <td th:text="${movie.title}"></td>
-            <td th:text="${movie.releaseYear}"></td>
-            <td th:text="${movie.director}"></td>
-            <td th:text="${movie.watchStatus.name}"></td>
-            <td><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
-        </tr>
-    </table>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Watch Status</th>
+            </tr>
+            <tr th:each="movie : ${movies}">
+                <td th:text="${movie.title}"></td>
+                <td th:text="${movie.releaseYear}"></td>
+                <td th:text="${movie.director}"></td>
+                <td th:text="${movie.watchStatus.name}"></td>
+                <td><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
+            </tr>
+        </table>
+    </section>
 
-    <p></p>
-    <p></p>
-
-    <a href="/movielist" class="btn btn-primary">See All Movies</a>
-
-    <p></p>
-    <p></p>
-
-    <a href="/userhomepage" class="btn btn-primary">Return to Home</a>
+    <nav>
+        <form th:action="@{/movielist}" method="get">
+            <button type="submit" class="btn btn-primary">See All Movies</button>
+        </form>
+        <form th:action="@{/userhomepage}" method="get">
+            <button type="submit" class="btn btn-primary">Return to Home</button>
+        </form>
+    </nav>
 
 </body>
 

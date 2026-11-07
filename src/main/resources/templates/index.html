@@ -3,27 +3,35 @@
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/main_style.css}" />
 </head>
 
 <body>
-    <p sec:authorize="isAuthenticated()">
-        Signed in as <span sec:authentication="name">username</span>
-    </p>
+    <div class="login_info">
+        <p sec:authorize="isAuthenticated()">
+            Signed in as <span sec:authentication="name">username</span>
+        </p>
 
-    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
-        <button type="submit">Log out</button>
-    </form>
+        <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+            <button type="submit">Log out</button>
+        </form>
+    </div>
+    <section class="index">
+        <h1>Movie Library</h1>
+        <h3></h3>
 
-    <h1>Movie Library</h1>
-    <h3></h3>
+        <form th:action="@{/login}" method="get">
+            <button type="submit">Log in to access your movie list</button>
+        </form>
 
-    <a th:href="@{/login}">Log in to access your movie list</a>
+        <p></p>
 
-    <p></p>
-    <p></p>
-
-    <a th:href="@{/signup}">No account? Sign-up</a>
+        <form th:action="@{/signup}" method="get">
+            <button type="submit">No account? Sign-up</button>
+        </form>
+    </section>
 
 </body>
 

@@ -1,0 +1,90 @@
+.movie_table,
+.homepage,
+.index,
+.change_movie,
+.login,
+.signup {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  padding-top: 2%;
+}
+
+.change_movie form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.settings {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+}
+
+nav {
+  font-size: large;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 3%;
+}
+
+.login_info {
+  font-size: large;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+
+button,
+input[type="submit"],
+.btn {
+  background-color: #d3d3d3;
+  color: #000;
+  border: 1px solid #888;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 75%;
+  margin: 0.25rem;
+}
+
+/* Adjustments for Desktop */
+@media only screen and (min-width: 651px) {
+  body {
+    font-size: 130%;
+  }
+
+  .login_info {
+    flex-direction: row;
+  }
+
+  .settings {
+    padding-left: 35%;
+    align-items: start;
+    text-align: start;
+  }
+
+  .movie_table table {
+    border-collapse: separate;
+    border-spacing: 2rem 0;
+  }
+
+  .change_movie form {
+    flex-direction: row;
+  }
+
+  button,
+  input[type="submit"],
+  .btn {
+    font-size: 85%;
+  }
+}

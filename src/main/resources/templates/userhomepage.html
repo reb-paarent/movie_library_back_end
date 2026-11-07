@@ -1,51 +1,53 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/main_style.css}" />
 </head>
 
 <body>
-    <p>
-        Signed in as <span sec:authentication="name">username</span>
-    </p>
+    <div class="login_info">
+        <p>
+            Signed in as <span sec:authentication="name">username</span>
+        </p>
 
-    <form th:action="@{/logout}" method="post">
-        <button type="submit">Log out</button>
-    </form>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Log out</button>
+        </form>
+    </div>
 
-    <h1>Homepage</h1>
-    <p></p>
-    <p></p>
+    <section class="homepage">
+        <h1>Homepage</h1>
+        
+        <a href="/usersettings" class="btn btn-primary">Settings</a>
 
-    <a href="/usersettings" class="btn btn-primary">Settings</a>
+        <p></p>
 
-    <p></p>
-    <p></p>
+        <a href="/wanttowatch" class="btn btn-primary">Want to Watch</a>
 
-    <a href="/wanttowatch" class="btn btn-primary">Want to Watch</a>
+        <p></p>
 
-    <p></p>
-    <p></p>
-
-    <a href="/movielist" class="btn btn-primary">See All Movies</a>
+        <a href="/movielist" class="btn btn-primary">See All Movies</a>
 
 
-    <h2>Watch By Genre</h2>
+        <h2>Watch By Genre</h2>
 
-    <select aria-label="Select a genre" onchange="if (this.value) window.location.href = this.value">
-        <option value="" selected disabled>Choose a genre</option>
-        <option value="/action">Action</option>
-        <option value="/adventure">Adventure</option>
-        <option value="/comedy">Comedy</option>
-        <option value="/drama">Drama</option>
-        <option value="/horror">Horror</option>
-        <option value="/kids">Kids</option>
-        <option value="/scifi">Science Fiction</option>
-        <option value="/thriller">Thriller</option>
-        <option value="/other">Other</option>
-    </select>
+        <select aria-label="Select a genre" onchange="if (this.value) window.location.href = this.value">
+            <option value="" selected disabled>Choose a genre</option>
+            <option value="/action">Action</option>
+            <option value="/adventure">Adventure</option>
+            <option value="/comedy">Comedy</option>
+            <option value="/drama">Drama</option>
+            <option value="/horror">Horror</option>
+            <option value="/kids">Kids</option>
+            <option value="/scifi">Science Fiction</option>
+            <option value="/thriller">Thriller</option>
+            <option value="/other">Other</option>
+        </select>
+    </section>
 
 </body>
 
