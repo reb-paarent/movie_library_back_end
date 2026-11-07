@@ -24,6 +24,17 @@
   text-align: center;
 }
 
+.table-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table-wrapper table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 nav {
   font-size: large;
   display: flex;

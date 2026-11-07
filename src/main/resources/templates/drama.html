@@ -22,7 +22,8 @@
     <section class="movie_table">
         <h1>Dramas</h1>
 
-        <table>
+        <div class="table-wrapper">
+            <table>
             <tr>
                 <th>Title</th>
                 <th>Year</th>
@@ -34,9 +35,14 @@
                 <td th:text="${movie.releaseYear}"></td>
                 <td th:text="${movie.director}"></td>
                 <td th:text="${movie.watchStatus.name}"></td>
-                <td><a th:href="@{/edit/{id}(id=${movie.id})}">Edit</a></td>
+                <td>
+                    <form th:action="@{/edit/{id}(id=${movie.id})}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
             </tr>
-        </table>
+            </table>
+        </div>
     </section>
 
     <nav>
