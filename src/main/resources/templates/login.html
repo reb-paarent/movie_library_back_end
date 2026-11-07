@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <title></title>
+    <title>Log in</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" th:href="@{/main_style.css}" />
@@ -10,7 +10,7 @@
 
 <body>
     <section class="login">
-        <h1>Log In</h1>
+        <h1>Log in</h1>
         <div>
             <div class="alert alert-danger" th:if="${param.error}">
                 Invalid username and password.
@@ -27,7 +27,7 @@
 
     <nav>
         <form th:action="@{/signup}" method="get">
-            <button type="submit">Sign-up</button>
+            <button type="submit">Sign up</button>
         </form>
         <form th:action="@{/index}" method="get">
             <button type="submit">Return</button>

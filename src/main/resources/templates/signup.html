@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <title></title>
+    <title>Sign up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" th:href="@{/main_style.css}" />
@@ -10,7 +10,7 @@
 
 <body>
     <section class="signup">
-        <h1>Sign Up</h1>
+        <h1>Sign up</h1>
         <div>
             <form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
                 <div>
@@ -32,7 +32,7 @@
                     </p>
                 </div>
 
-                <input type="submit" class="btn btn-primary" value="Signup"></input>
+                <input type="submit" class="btn btn-primary" value="Sign up"></input>
             </form>
         </div>
     </section>
